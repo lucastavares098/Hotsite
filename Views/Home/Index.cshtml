@@ -1,0 +1,230 @@
+﻿@model Interesse
+@{
+    ViewData["Title"] = "Hotsite";
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<div class="row" style="padding-top: 10px;">
+    <div class="col-6">
+        <h1>Iniciativa Saúde da Cidade</h1>
+        <p>
+            Texto sobre vida saudável: Lorem ipsum dolor sit amet et delectus accommodare his consul copiosae legendos
+            at vix ad putent delectus delicata usu. Vidit dissentiet eos cu eum an brute copiosae hendrerit.
+        </p>
+        <p>
+            Texto sobre vida iniciativa: Lorem ipsum dolor sit amet et delectus accommodare his consul copiosae legendos
+            at vix ad putent delectus delicata usu. Vidit dissentiet eos cu eum an brute copiosae hendrerit.
+        </p>
+    </div>
+
+    <div class="col-6">
+        <img src="~/img/Imagem1.png" width="600px" alt="Descrição da imagem" />
+    </div>
+</div>
+<br>
+<div class="row" style="padding-left: 10px">
+    <div class="col-6" style="border: 2px solid gray;">
+        @if (TempData["Message"] != null)
+        {
+            <div class="alert alert-info" id="tempMessage">
+                @TempData["Message"]
+            </div>
+        }
+        <h2>Entre em contato!:</h2>
+        <p>Nos mande uma mensagem e fique por dentro de nossos eventos</p>
+
+        <form action="/Home/Cadastrar" method="POST">
+            <div class="form-group row">
+                <label asp-for="Nome" class="col-sm-2 col-form-label">Nome:</label>
+                <div class="col-sm-6">
+                    <input asp-for="Nome" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Email" class="col-sm-2 col-form-label">Email:</label>
+                <div class="col-sm-6">
+                    <input asp-for="Email" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Mensagem" class="col-sm-2 col-form-label">Mensagem (opcional):</label>
+                <div class="col-sm-6">
+                    <textarea asp-for="Mensagem" class="form-control"></textarea>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-6" style="display: inline-block; text-align: right">
+                    <input type="submit" value="Enviar" />
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-6">
+        <div class="row">
+            <div class="col-4">
+                <div style="display: flex; flex-direction: column; align-items: center;">
+                    <img src="~/img/Imagem2.png" width="100px" alt="Agenda de eventos">
+                    <a href="#" id="eventos">Agenda de eventos</a>
+                </div>
+            </div>
+            <div class="col-4">
+                <div style="display: flex; flex-direction: column; align-items: center;">
+                    <img src="~/img/Imagem2.png" width="100px" alt="Dicas de vida saudável">
+                    <a href="#" id="saudavel">Dicas de vida saudável</a>
+                </div>
+            </div>
+            <div class="col-4">
+                <div style="display: flex; flex-direction: column; align-items: center;">
+                    <img src="~/img/Imagem2.png" width="100px" alt="Apoiadores">
+                    <a href="#" id="apoiadores">Apoiadores</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@* Modal agenda de eventos *@
+
+<div class="modal fade" id="eventosModal" tabindex="-1" role="dialog" aria-labelledby="eventosModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="eventosModalLabel">Agenda</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                10/10/2024 10:10 - Evento 1
+                <br><br>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis voluptas, voluptatem harum, quis
+                obcaecati a temporibus maiores nisi nobis dolore vitae tempore, nemo neque placeat amet quam eaque ea
+                autem.
+                <br><br>
+                10/10/2024 10:10 - Evento 2
+                <br><br>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis voluptas, voluptatem harum, quis
+                obcaecati a temporibus maiores nisi nobis dolore vitae tempore, nemo neque placeat amet quam eaque ea
+                autem.
+                <br><br>
+                10/10/2024 10:10 - Evento 3
+                <br><br>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis voluptas, voluptatem harum, quis
+                obcaecati a temporibus maiores nisi nobis dolore vitae tempore, nemo neque placeat amet quam eaque ea
+                autem.
+                <br>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* Modal apoiadores *@
+
+<div class="modal fade" id="apoiadoresModal" tabindex="-1" role="dialog" aria-labelledby="apoiadoresModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="apoiadoresModalLabel">Apoiadores</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-2">
+                        <img src="~/img/Imagem2.png" alt="Empresa 1">
+                    </div>
+                    <div class="col-8">
+                        <h5>Empresa 1</h5>
+                        <p>Descrição</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        <img src="~/img/Imagem2.png" alt="Empresa 2">
+                    </div>
+                    <div class="col-8">
+                        <h5>Empresa 2</h5>
+                        <p>Descrição</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        <img src="~/img/Imagem2.png" alt="Empresa 3">
+                    </div>
+                    <div class="col-8">
+                        <h5>Empresa 3</h5>
+                        <p>Descrição</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        <img src="~/img/Imagem2.png" alt="Empresa 4">
+                    </div>
+                    <div class="col-8">
+                        <h5>Empresa 4</h5>
+                        <p>Descrição</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* Modal dicas de vida saudavel *@
+
+<div class="modal fade" id="saudavelModal" tabindex="-1" role="dialog" aria-labelledby="saudavelModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="saudavelModalLabel">Dicas de vida saudável</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas facere ratione dolorem non eaque dignissimos veniam est accusamus nostrum corporis quo voluptatem neque nihil vitae quaerat numquam, maiores impedit. Voluptatibus!
+                <br><br>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id alias voluptatum ut praesentium reprehenderit eius veniam quis, similique magni cupiditate laudantium? Harum eligendi eos exercitationem autem dolore eius recusandae nihil!
+                <br><br>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum impedit sapiente cum accusamus nemo recusandae reiciendis exercitationem nulla, esse aperiam. Ratione nesciunt et expedita sit quis sint similique inventore perferendis?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+
+        @* Tempo do alerta *@
+        setTimeout(function () {
+            $('#tempMessage').fadeOut('fast');
+        }, 3000); // 3 segundos
+
+        @* Abrir modal de eventos *@
+        $("#eventos").click(function () {
+            $("#eventosModal").modal('show');
+        });
+        @* Abrir modal de apoiadores *@
+        $("#apoiadores").click(function () {
+            $("#apoiadoresModal").modal('show');
+        });
+        @* Abrir modal de vida saudavel *@
+        $("#saudavel").click(function () {
+            $("#saudavelModal").modal('show');
+        });
+    });
+</script>
