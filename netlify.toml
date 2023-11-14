@@ -1,4 +1,4 @@
 [[redirects]]
   from = "/*"
-  to = "/Views/Home/index.cshtml"
+  to = "/Views/Home/index"
   status = 200
