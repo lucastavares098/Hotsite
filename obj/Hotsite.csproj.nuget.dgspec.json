@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\xampp\\htdocs\\projetohotsite\\Hotsite.csproj": {}
+    "C:\\xampp\\htdocs\\Hotsite\\Hotsite.csproj": {}
   },
   "projects": {
-    "C:\\xampp\\htdocs\\projetohotsite\\Hotsite.csproj": {
+    "C:\\xampp\\htdocs\\Hotsite\\Hotsite.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\xampp\\htdocs\\projetohotsite\\Hotsite.csproj",
+        "projectUniqueName": "C:\\xampp\\htdocs\\Hotsite\\Hotsite.csproj",
         "projectName": "Hotsite",
-        "projectPath": "C:\\xampp\\htdocs\\projetohotsite\\Hotsite.csproj",
-        "packagesPath": "C:\\Users\\lucas.tavares\\.nuget\\packages\\",
-        "outputPath": "C:\\xampp\\htdocs\\projetohotsite\\obj\\",
+        "projectPath": "C:\\xampp\\htdocs\\Hotsite\\Hotsite.csproj",
+        "packagesPath": "C:\\Users\\Lucas\\.nuget\\packages\\",
+        "outputPath": "C:\\xampp\\htdocs\\Hotsite\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\lucas.tavares\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Lucas\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
