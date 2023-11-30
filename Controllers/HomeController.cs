@@ -32,18 +32,21 @@ namespace Hotsite.Controllers
                 {
                     DatabaseService dbs = new DatabaseService();
                     dbs.CadastraInteresse(cad);
-
                     TempData["Message"] = "Cadastro realizado com sucesso!";
-                    return RedirectToAction("Index");
+                    return Json(new { success = "Sucesso!" });
                 }
-                catch
+                catch (Exception e)
                 {
                     TempData["Message"] = "Ocorreu um erro. Por favor, tente novamente mais tarde.";
                     _logger.LogError("Erro ao cadastrar. Por favor, tente novamente mais tarde");
+                    return StatusCode(500, new { error = "Erro!", e.Message });
                 }
             }
-
-            return View("Index", cad);
+            else
+            {
+                return Json(new { error = "ModelState is invalid." });
+            }
+            // return View("Index", cad);
         }
 
         // [HttpPost]
